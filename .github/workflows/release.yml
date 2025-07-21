@@ -16,8 +16,9 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-          registries: |
-            '@mdrv:https://registry.npmjs.org/|$NPM_TOKEN'
+          registry-url: |
+            'https://registry.npmjs.org/|$NPM_TOKEN'
+          scope: '@mdrv'
       # - run: bun i # install
       # - run: bun b # build
       - name: Remove GitHub alerts from README.md for NPM
