@@ -28,11 +28,11 @@ jobs:
       #       'reduce .publishConfig as $in (.; . + $in) | del(.publishConfig)' \
       #       package.json > package.json~
       #     mv package.json~ package.json
-      # - uses: actions/setup-node@v4
-      #   with:
-      #     node-version: latest
-      #     registry-url: 'https://registry.npmjs.org/'
-      #     scope: '@mdrv'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: latest
+          registry-url: 'https://registry.npmjs.org/'
+          scope: '@mdrv'
       - name: 'Pack with Bun for NPM'
         run: bun pm pack --filename ./tmp.tgz
       - name: 'Publish to NPM: `bunmd`'
