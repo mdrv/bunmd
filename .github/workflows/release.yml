@@ -16,8 +16,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: latest
-          registry-url: |
-            'https://registry.npmjs.org/|$NPM_TOKEN'
+          registry-url: 'https://registry.npmjs.org/'
           scope: '@mdrv'
       # - run: bun i # install
       # - run: bun b # build
@@ -38,7 +37,13 @@ jobs:
         run: bun pm pack --filename ./tmp.tgz
       - name: 'Publish to NPM: `bunmd`'
         if: ${{ !github.event.release.prerelease }}
-        run: bunx npm publish ./tmp.tgz --provenance --access public
+        run: npm publish ./tmp.tgz --provenance --access public
+        env:
+          NPM_CONFIG_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
       - name: 'Publish to NPM: `bunmd` (next)'
         if: ${{ github.event.release.prerelease }}
-        run: bunx npm publish ./tmp.tgz --provenance --access public --tag next
+        run: npm publish ./tmp.tgz --provenance --access public --tag next
+        env:
+          NPM_CONFIG_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
