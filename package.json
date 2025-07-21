@@ -1,6 +1,6 @@
 {
 	"name": "bunmd",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "(WIP) Bun Markdown plugin + CLI",
 	"keywords": [
 	],
@@ -25,6 +25,8 @@
 		"es-toolkit": "^1.39.7",
 		"snarkdown": "^2.0.0"
 	},
+	"main": "./plugin.ts",
+	"types": "./plugin.ts",
 	"exports": {
 		".": "./plugin.ts",
 		"./factory": "./factory.ts"
