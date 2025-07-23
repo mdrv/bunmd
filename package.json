@@ -2,11 +2,10 @@
 	"name": "bunmd",
 	"version": "0.1.1",
 	"description": "(WIP) Bun Markdown plugin + CLI",
-	"keywords": [
-	],
+	"keywords": [],
 	"homepage": "https://github.com/mdrv/bunmd",
 	"bugs": {
-		"url": "https://github.com/mdrv/bunmd"
+		"url": "https://github.com/mdrv/bunmd/issues"
 	},
 	"repository": {
 		"type": "git",
@@ -30,6 +29,11 @@
 	"exports": {
 		".": "./plugin.ts",
 		"./factory": "./factory.ts"
+	},
+	"scripts": {
+		"b": "tsdown",
+		"f": "dprint fmt",
+		"fc": "dprint check"
 	},
 	"files": ["bin", "css", "gen", "*.ts", "tsconfig.json"],
 	"bin": "bin/bunmd.ts"
