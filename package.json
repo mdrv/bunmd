@@ -21,8 +21,9 @@
 		"typescript": "^5"
 	},
 	"dependencies": {
-		"es-toolkit": "^1.39.7",
-		"snarkdown": "^2.0.0"
+		"marked": "^16",
+		"snarkdown": "^2",
+		"es-toolkit": "^1.39.7"
 	},
 	"main": "./plugin.ts",
 	"types": "./plugin.ts",

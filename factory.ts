@@ -1,7 +1,7 @@
 import type { BunPlugin } from 'bun'
 import { toMerged } from 'es-toolkit'
 
-type ParserName = 'snarkdown'
+type ParserName = 'marked' | 'snarkdown'
 type LinesOpt = boolean | 'double' | 'single'
 
 type Opts = {
@@ -17,6 +17,7 @@ type Opts = {
 }
 
 const parsers: Record<ParserName, () => Promise<Function>> = {
+	marked: async () => (await import('marked')).parse,
 	snarkdown: async () => (await import('snarkdown')).default,
 }
 const preprocess: Record<LinesOpt, () => string | ReadonlyArray<string>> = {
@@ -25,7 +26,7 @@ const preprocess: Record<LinesOpt, () => string | ReadonlyArray<string>> = {
 }
 
 const defaultOpts: Opts = {
-	parser: 'snarkdown',
+	parser: 'marked',
 	lines: false,
 }
 
